@@ -224,6 +224,7 @@ class GammaMarket(BaseModel):
     fee_schedule: Optional[FeeSchedule] = Field(None, alias="feeSchedule")
     maker_rebates_fee_share_bps: int | None = Field(None, alias="makerRebatesFeeShareBps")
 
+    combo_status: str | None = Field(None, alias="comboStatus")
     @field_validator("condition_id", mode="wrap")
     @classmethod
     def validate_condition_id(
@@ -293,6 +294,7 @@ class Series(BaseModel):
     chats: Optional[list[Chat]] = Field(None, alias="chats")
 
 
+    schema: str | None = Field(None, alias="$schema")
 class Category(BaseModel):
     """Category model."""
 
@@ -328,6 +330,7 @@ class Tag(BaseModel):
     requires_translation: Optional[bool] = Field(None, alias="requiresTranslation")
 
 
+    schema: str | None = Field(None, alias="$schema")
 class TagRelation(BaseModel):
     """Tag relation model."""
 
